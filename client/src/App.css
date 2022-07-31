@@ -1,38 +1,32 @@
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.regForm, .logForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.regForm input, .regForm button, .logForm input, .logForm button {
+  width: 300px;
+  height: 30px;
+}
+
+.regForm button, .logForm button {
+  margin-top: 20px;
+}
+
+.spacer {
+  height: 50px;
+}
+
+hr {
+  background-color: black;
+  height: 2px;
+  width: 500px;
+  max-width: 50%;
 }
