@@ -14,20 +14,7 @@ function App() {
   const [logEmail, getEmail] = useState('');
   const [logPassword, getPassword] = useState('');
 
-  // const [accountIndex, getAccountIndex] = useState('');
-
-  let accountArray = [];
-
-  // function to confirm what info is being passed through before implemented database
-  /* const registrationInfo = () => {
-    console.log(regAccountName + " " + regEmail + " " + regPassword);
-    accountArray.push([regEmail,regPassword]);
-    console.log(accountArray);
-  };
-
-  const loginInfo = () => {
-    console.log(logEmail + " " + logPassword);
-  }; */
+  const [accountList, setAccountList] = useState([]);
 
   const addAccount = () => {
     // CHANGE THIS LATER
@@ -45,9 +32,14 @@ function App() {
 
   const loginAccount = () => {
     // CHANGE THIS LATER
-    Axios.get('http://localhost:3001/login', {
-      accountName: logAccountName,
-      password: logPassword
+    Axios.get('http://localhost:3001/login').then((response) => {
+      console.log(response);
+    });
+  };
+
+  const getAccountList = () => {
+    Axios.get('http://localhost:3001/login').then((accountResponse) => {
+      setAccountList(accountResponse.data);
     });
   };
 
@@ -111,6 +103,24 @@ function App() {
         <button 
         onClick={loginAccount}
         >Log In</button>
+
+        <button 
+        onClick={getAccountList}
+        >Get Account Info</button>
+
+
+          
+        <div className="showAccountInfo">
+
+        {accountList.map((val,key) => {
+            return (
+            <div> Account Name: <br /> {val.accounts_name}  </div>
+            )
+          })}
+          
+
+        </div>
+
       </div>
     </div>
   );

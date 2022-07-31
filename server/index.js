@@ -21,18 +21,30 @@ const db = mysql.createConnection({
 
 // Basic POST request w/ route
 app.post('/register', (req,res) => {
-    const accountName = req.body.accountName;
-    const email = req.body.email;
-    const password = req.body.password;
+    const { accountName, email, password } = req.body;
 
     db.query('INSERT INTO accounts (accounts_name, accounts_email, accounts_password) VALUES (?,?,?)', [accountName, email, password]), (err, result) => {
         if(err) {
             console.log(err);
         } else {
+            console.log("Account registration information inserted into database");
             res.send("Account information inserted into database");
         }
     }
     ;
+});
+
+// Basic GET request w/ route
+app.get('/login', (req,res) => {
+
+    db.query('SELECT * FROM accounts', (err, result) => {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log("Account information retrieved from database");
+            res.send(result);
+        }
+    });
 });
 
 
