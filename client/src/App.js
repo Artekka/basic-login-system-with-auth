@@ -114,7 +114,9 @@ function App() {
 
         {accountList.map((val,key) => {
             return (
-            <div> Account Name: <br /> {val.accounts_name}  </div>
+              <div> 
+              Account: <br /> {val.accounts_name}
+            </div>
             )
           })}
           
