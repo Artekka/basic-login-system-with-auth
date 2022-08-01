@@ -11,10 +11,11 @@ function App() {
   const [regPassword, setPassword] = useState('');
 
   const [logAccountName, getAccountName] = useState('');
-  const [logEmail, getEmail] = useState('');
+  // const [logEmail, getEmail] = useState('');
   const [logPassword, getPassword] = useState('');
 
-  const [accountList, setAccountList] = useState([]);
+  const [logStatus, setLogStatus] = useState('');
+
 
   const addAccount = () => {
     // CHANGE THIS LATER
@@ -25,21 +26,19 @@ function App() {
       accountName: regAccountName,
       email: regEmail,
       password: regPassword
-    }).then(() => {
-      console.log("SUCCESS: Account registered!");
+    }).then((response) => {
+      console.log("SUCCESS! Account registered: " + `${regAccountName}`)
+      console.log(response.data);
     });
   };
 
   const loginAccount = () => {
-    // CHANGE THIS LATER
-    Axios.get('http://localhost:3001/login').then((response) => {
-      console.log(response);
-    });
-  };
-
-  const getAccountList = () => {
-    Axios.get('http://localhost:3001/login').then((accountResponse) => {
-      setAccountList(accountResponse.data);
+    Axios.post('http://localhost:3001/login', {
+      accountName: logAccountName,
+      password: logPassword
+    }).then((response) => {
+      console.log(`SUCCESS! Account logged in: ${logAccountName}`)
+      console.log(response.data);
     });
   };
 
@@ -81,47 +80,20 @@ function App() {
         
         <label>Account Name:</label>
         <input type="text" 
-          onChange={(event) => { getEmail(event.target.value);}}
-          value = ''
-          required
+          onChange={(e) => { getAccountName(e.target.value);}}
         />
-        
-        {/* <label>Email Address:</label>
-        <input type="text" 
-          onChange={(event) => { getEmail(event.target.value);}}
-          value = {logEmail}
-          required
-        /> */}
 
         <label>Password:</label>
-        <input type="text" 
-          onChange={(event) => { getPassword(event.target.value);}}
-          value = ''
-          required
+        <input 
+          type="text" 
+          onChange={(e) => { getPassword(e.target.value);}}
         />
 
         <button 
         onClick={loginAccount}
         >Log In</button>
 
-        <button 
-        onClick={getAccountList}
-        >Get Account Info</button>
 
-
-          
-        <div className="showAccountInfo">
-
-        {accountList.map((val,key) => {
-            return (
-              <div> 
-              Account: <br /> {val.accounts_name}
-            </div>
-            )
-          })}
-          
-
-        </div>
 
       </div>
     </div>
