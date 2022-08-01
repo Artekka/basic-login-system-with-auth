@@ -1,0 +1,8 @@
+07/31/2022	08:01:52	361ff764-8048-4077-9dce-2e15001b1324	/	GET
+07/31/2022	08:01:52	3ee5d3d1-326d-43c7-a7bf-bb81d115514c	Error: ENOENT: no such file or directory, open 'F:\Programming\Einherjar\server\login_system\server\views\404.html'
+07/31/2022	08:02:36	04d27ff5-16a9-4550-b1f4-07eae81dde78	/ws	GET
+07/31/2022	08:02:36	cdb6ea9b-cd31-4f5a-a472-6878876034bf	Error: ENOENT: no such file or directory, open 'F:\Programming\Einherjar\server\login_system\server\views\404.html'
+07/31/2022	08:04:23	dbbaa859-afaa-43c9-9eee-b396a9713638	/	GET
+07/31/2022	08:04:50	cd1bcf21-30db-4e48-93fa-5d8d97d6e93d	/	GET
+07/31/2022	08:14:00	851cd5fb-108b-4bdc-ac07-97159d612300	/ws	GET
+07/31/2022	08:14:36	9532d42d-c1cd-477e-9f62-003b24d47d36	/ws	GET

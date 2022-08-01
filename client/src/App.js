@@ -27,8 +27,9 @@ function App() {
       email: regEmail,
       password: regPassword
     }).then((response) => {
-      console.log("SUCCESS! Account registered: " + `${regAccountName}`)
+      console.log("SUCCESS! Account registered: " + `${regAccountName}`);
       console.log(response.data);
+      alert("SUCCESS! Account registered: " + `${regAccountName}`);
     });
   };
 
