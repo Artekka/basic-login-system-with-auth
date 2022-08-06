@@ -15,26 +15,34 @@ function App() {
   const [logPassword, getPassword] = useState('');
 
   const [logStatus, setLogStatus] = useState('');
+  
+  const localVsDeployed = "local";
 
+  const sqlAddress = () => {
+    if (localVsDeployed === "local") {
+      return "http://localhost:3001";
+    } else {
+      return process.env.MYSQL_HOST;
+    }
+  };
 
   const addAccount = () => {
     // CHANGE THIS LATER
     // Make POST request passing in values from the
     // form. then() promise that occurs after the
     // POST request is completed.
-    Axios.post('http://localhost:3001/register', {
+    Axios.post(sqlAddress() + '/register', {
       accountName: regAccountName,
       email: regEmail,
       password: regPassword
     }).then((response) => {
-      console.log("SUCCESS! Account registered: " + `${regAccountName}`);
+      console.log("SUCCESS! Account registered: " + `${regAccountName}`)
       console.log(response.data);
-      alert("SUCCESS! Account registered: " + `${regAccountName}`);
     });
   };
 
   const loginAccount = () => {
-    Axios.post('http://localhost:3001/login', {
+    Axios.post(sqlAddress() + '/login', {
       accountName: logAccountName,
       password: logPassword
     }).then((response) => {
