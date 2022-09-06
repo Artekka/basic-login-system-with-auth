@@ -25,6 +25,7 @@ db.on('error', function(err) {
     console.log("We ded lawl");
     console.log(err)
 })
+
 // Basic POST request w/ route
 
 app.post('/register', (req,res) => {
