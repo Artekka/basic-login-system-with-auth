@@ -7,19 +7,24 @@ const path = require('path');
 app.use(cors());
 app.use(express.json());
 
-const serverPORT = 3001;
+const serverPORT = 3006;
 const appPORT = process.env.PORT || 3001;
 
 // Connect to the MySQL database
 
 const db = mysql.createConnection({
     // Put all the local database info here
-    user: process.env.MYSQL_HOST ||'localhost',
-    host: process.env.MYSQL_USER ||'root',
+    host: process.env.MYSQL_HOST || 'localhost',
+    //port: process.env.MYSQL_PORT || 3006,
+    user: process.env.MYSQL_USER ||'root',
     password: process.env.MYSQL_PASSWORD ||'12345sam',
     database: process.env.MYSQL_DATABASE ||'einherjar'
 });
 
+db.on('error', function(err) {
+    console.log("We ded lawl");
+    console.log(err)
+})
 // Basic POST request w/ route
 
 app.post('/register', (req,res) => {

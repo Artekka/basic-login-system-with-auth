@@ -1,0 +1,32 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.regForm, .logForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.regForm input, .regForm button, .logForm input, .logForm button {
+  width: 300px;
+  height: 30px;
+}
+
+.regForm button, .logForm button {
+  margin-top: 20px;
+}
+
+.spacer {
+  height: 50px;
+}
+
+hr {
+  background-color: black;
+  height: 2px;
+  width: 500px;
+  max-width: 50%;
+}
